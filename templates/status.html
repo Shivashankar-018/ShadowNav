@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Status — {{ app_name }}{% endblock %}
+
+{% block content %}
+<section class="card">
+  <h1>Backend status</h1>
+  <p><strong>OK:</strong> {{ status.ok }}</p>
+  <p><strong>App:</strong> {{ status.app }}</p>
+  <p><strong>Message:</strong> {{ status.message }}</p>
+  <p><strong>Step:</strong> {{ status.step }}</p>
+  <p><strong>Time (UTC):</strong> {{ status.time_utc }}</p>
+  <p class="note">The machine-readable JSON is still at <a href="{{ url_for('api_status') }}">/api/status</a>. Open that only if you want raw JSON.</p>
+</section>
+{% endblock %}

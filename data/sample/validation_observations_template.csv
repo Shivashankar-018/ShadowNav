@@ -1,0 +1,1 @@
+observation_id,observed_at_utc,latitude,longitude,air_temperature_c,relative_humidity_percent,wind_speed_kmh,sensor_height_m,sensor_model,calibration_reference,quality_flag,notes

@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: shadownav-web-demo
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt && python -m ml.create_sample_dataset --rows 2500 --seed 42 && python -m ml.train_model && python -m ml.evaluate_model
+    startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 1 --threads 4 --timeout 240 app:app
+    healthCheckPath: /api/status
+    envVars:
+      - key: SHADOWNAV_DEBUG
+        value: "false"
+      - key: SHADOWNAV_PUBLIC_DEMO
+        value: "true"
